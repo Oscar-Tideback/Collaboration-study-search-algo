@@ -12,9 +12,10 @@ void printArray(unsigned *arr, size_t size);
 void sorting_test(unsigned* (radnomizer)(size_t), void (algorithm)(unsigned*, size_t), size_t num_of_tests, size_t size_of_first_test, size_t size_increase, const char *filename){
   double cpu_time_used;
   unsigned* arr = radnomizer(size_of_first_test); 
-  //printArray(arr, size_of_first_test);
+  printArray(arr, size_of_first_test);
   for(int i = 0; i < num_of_tests; i++){
     if(i != 0){
+      size_of_first_test = size_of_first_test + size_increase;  
       arr = radnomizer(size_of_first_test); 
     }
     clock_t start, end;
@@ -24,7 +25,6 @@ void sorting_test(unsigned* (radnomizer)(size_t), void (algorithm)(unsigned*, si
     //cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
     //printf("Size:(%d) Start: %d End: %d: CPU Time: %d, Time: %d\n",size, start, end, cpu_time_used, (end-start));
     printf("%d,%d\n", i, (end-start));
-    size_of_first_test = size_of_first_test + size_increase;   
     }
     printArray(arr, size_of_first_test);
   free(arr);  
@@ -37,7 +37,7 @@ void printArray(unsigned *arr, size_t size){
 }
 
 int main(int argc, char *argv[]){
-	sorting_test(shuffle, heapSort,  2, 500, 50, "file_name");
+	sorting_test(shuffle, quicksort,  2, 500, 50, "file_name");
   while(true){
     the_menu();
   }
