@@ -12,7 +12,6 @@ unsigned* random_array(size_t size) {
     unsigned* array = malloc(sizeof(unsigned) * size); 
 
     srand((unsigned) time(&t1));
-    printf("\n"); 
 
     for(i = 0; i < size; i++) {
         array[i] = rand(); //slumpmässigt värde i [i]
