@@ -40,9 +40,3 @@ void heapSort(unsigned *arr, size_t size){
     heapify(arr, 0, i);                                   // search for largest value in heap, "i" will be size-1, one less for every call
   }
 }
-
-void printArray(unsigned *arr, size_t size){
-  for(int i = 0; i < size; i++){
-    printf("%u ", arr[i]);
-  }
-}
