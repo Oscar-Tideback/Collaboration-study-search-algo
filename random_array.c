@@ -18,3 +18,47 @@ unsigned* random_array(size_t size) {
 
     return array;
 }
+unsigned* shuffle(int size) {
+    unsigned* shuffle_array = malloc(sizeof(unsigned)*size); 
+    srand(time(NULL));
+     
+    int i;
+    for (i = 0; i < size; i++){
+        shuffle_array[i] = i + 1;
+    }
+    for (i = 0; i < size; i++) {
+        int randIndex = rand() % size; 
+        int temp = shuffle_array[i]; 
+        shuffle_array[i] = shuffle_array[randIndex];
+        shuffle_array[randIndex] = temp; 
+    } 
+    return shuffle_array;
+}
+unsigned* almostsorted(int size) {
+    unsigned* sorted_array = malloc(sizeof(unsigned)*size); 
+    srand(time(NULL));
+     
+    int i;
+    for (i = 0; i < size; i++){
+        sorted_array[i] = i + 1;
+    }
+    for (i = 0; i < size; i = i + 10) {
+        int randInt = rand() % size; 
+        int temp_sorted = sorted_array[i]; 
+        sorted_array[i] = sorted_array[randInt];
+        sorted_array[randInt] = temp_sorted; 
+    } 
+    return sorted_array;
+}
+}
+int main() {
+    int size = 100000000; 
+    int i; 
+    unsigned* array = almostsorted(size); /* shuffle(size); */ /*random_array(size);*/
+
+    for(i = 0; i < size; i++) {
+        printf("%d ", array[i]);
+    }  
+
+    return 0;
+}
