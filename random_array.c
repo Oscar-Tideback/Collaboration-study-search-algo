@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <time.h> 
 
+
 unsigned* random_array(size_t size) {
 
     int i;
@@ -11,17 +12,18 @@ unsigned* random_array(size_t size) {
     unsigned* array = malloc(sizeof(unsigned) * size); 
 
     srand((unsigned) time(&t1));
-    
+    printf("\n"); 
+
     for(i = 0; i < size; i++) {
         array[i] = rand(); //slumpmässigt värde i [i]
     }
 
     return array;
 }
-unsigned* shuffle(int size) {
-    unsigned* shuffle_array = malloc(sizeof(unsigned)*size); 
+unsigned* shuffle(size_t size) {
+    unsigned* shuffle_array = malloc(sizeof(unsigned) * size); 
     srand(time(NULL));
-     
+
     int i;
     for (i = 0; i < size; i++){
         shuffle_array[i] = i + 1;
@@ -34,10 +36,10 @@ unsigned* shuffle(int size) {
     } 
     return shuffle_array;
 }
-unsigned* almostsorted(int size) {
-    unsigned* sorted_array = malloc(sizeof(unsigned)*size); 
+unsigned* almostsorted(size_t size) {
+    unsigned* sorted_array = malloc(sizeof(unsigned) * size); 
     srand(time(NULL));
-     
+
     int i;
     for (i = 0; i < size; i++){
         sorted_array[i] = i + 1;
@@ -50,15 +52,13 @@ unsigned* almostsorted(int size) {
     } 
     return sorted_array;
 }
-}
-int main() {
+/*int main() {
     int size = 100000000; 
-    int i; 
-    unsigned* array = almostsorted(size); /* shuffle(size); */ /*random_array(size);*/
+    unsigned array = almostsorted(size); // shuffle(size); / /random_array(size);
 
-    for(i = 0; i < size; i++) {
+    for(int i = 0; i < size; i++) {
         printf("%d ", array[i]);
-    }  
+    }
 
     return 0;
-}
+}*/
