@@ -46,6 +46,6 @@ static void quicksort_recursive_helper (unsigned *A, int low, int high) {
     quicksort_recursive_helper(A, p + 1, high); // Right side of pivot
 }
 
-void quicksort(unsigned *A, int n) {
+void quicksort(unsigned *A, size_t n) {
     quicksort_recursive_helper(A, 0, n - 1);
 }
