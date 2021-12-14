@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h> 
 #include <time.h> 
-//#include "menu.h"
+#include "menu.h"
 #include "quicksort.h"
 #include "heapsort.h"
 #include "random_array.h"
@@ -24,7 +25,7 @@ void sorting_test(unsigned* (radnomizer)(size_t), void (algorithm)(unsigned*, si
       //cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
       //printf("Size:(%d) Start: %d End: %d: CPU Time: %d, Time: %d\n",size, start, end, cpu_time_used, (end-start));
       printf("%d,%d\n", i, (end-start));
-      //printArr(arr, size_of_first_test);
+      printArr(arr, size_of_first_test);
       size_of_first_test = size_of_first_test + size_increase;
       arr = random_array(size_of_first_test); 
     }
@@ -39,5 +40,8 @@ void printArr(unsigned *arr, size_t size){
 
 int main(int argc, char *argv[]){
   //printf("MAIN\n");
-	sorting_test(shuffle, heapSort,  2, 500, 1000, "file_name");
+	sorting_test(shuffle, heapSort,  2, 500, 10000, "file_name");
+  while(true){
+    the_menu();
+  }
 }

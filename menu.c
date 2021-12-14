@@ -1,11 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "heapsort.h"
+#include "quicksort.h"
+#include "menu.h"
 
-void sorting_test(void (*algorithm)(unsigned*, size_t), size_t num_of_tests, size_t size_of_first_test, size_t size_increase, const char *filename);
-
-void bubblesort(unsigned *A, size_t n) {}
-void quicksort(unsigned *A, size_t n) {}
+/*void sorting_test(void (*algorithm)(unsigned*, size_t), size_t num_of_tests, size_t size_of_first_test, size_t size_increase, const char *filename);
 void heap_sort(unsigned *A, size_t n) {}
+void quicksort(unsigned *A, size_t n) {}*/
+void bubblesort(unsigned *A, size_t n) {}
 
 static void test_sortingalgorithm() {
         void (*algorithm)(unsigned*, size_t);
@@ -29,7 +31,7 @@ static void test_sortingalgorithm() {
         algorithm = quicksort;
             break;
         case 3: 
-        algorithm = heap_sort;
+        algorithm = heapSort;
             break;
 
         printf("Enter number of tests: ");
@@ -51,7 +53,7 @@ static void test_sortingalgorithm() {
         sorting_test(algorithm, num_of_tests , size_of_first_test , size_increase, filename);
     }
 }
-static void the_menu() {
+void the_menu() {
     menu:
     printf("\n ****MENU**** \n");
     printf("\n");
@@ -75,8 +77,8 @@ static void the_menu() {
     goto menu; 
 }
 
-int main() {
+/*int main() {
     the_menu();
     
     return 0; 
-}
+}*/

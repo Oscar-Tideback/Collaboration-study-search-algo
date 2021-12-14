@@ -1,10 +1,10 @@
-#include "heapsort.h"
-
 #include <stddef.h>
 #include <stdio.h>
+#include "heapsort.h"
+#include "menu.h"
 
 // max heap, make largest value as root "child key will be less or same as parent"
-void heapify(unsigned *arr, int i, int size){
+static void heapify(unsigned *arr, int i, int size){
   //printf("HS2\n");
   int largest = i, right = (2*i) + 2, left = (2*i) + 1; 
   //printf("HS3\n");                                        // asumes (initialize) that largest is "root" in subtree
