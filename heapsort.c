@@ -4,10 +4,8 @@
 #include "menu.h"
 
 // max heap, make largest value as root "child key will be less or same as parent"
-static void heapify(unsigned *arr, int i, int size){
-  //printf("HS2\n");
-  int largest = i, right = (2*i) + 2, left = (2*i) + 1; 
-  //printf("HS3\n");                                        // asumes (initialize) that largest is "root" in subtree
+static void heapify(unsigned *arr, int i, int size){   
+  int largest = i, right = (2*i) + 2, left = (2*i) + 1;   // asumes (initialize) that largest is "root" in subtree
   if(left < size && arr[left] > arr[largest]){            // check if left child is grater then parrent (root "largest")
     largest = left;                                       // and it should not be larger then size, ignoring leafs. 
   }
@@ -20,15 +18,12 @@ static void heapify(unsigned *arr, int i, int size){
       temp = arr[largest];
       arr[largest] = arr[i];
       arr[i] = temp;
-      //printf("HS4\n");
       heapify(arr, largest, size);                        // test again to see if larges is largest
     }
   }                                                       
 }
 
 void heapSort(unsigned *arr, size_t size){
-  //printf("HS1\n");
-  //printArray(arr, size);
   for(int i = (size/2) -1; i >= 0; --i){                  // will ignore leafs and start at (size/2)-1 and go to 0 "root"
     heapify(arr, i, size);                                // start heaper() from (size/2)-1 as "largest" 
   }

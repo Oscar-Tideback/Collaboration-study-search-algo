@@ -33,6 +33,10 @@ unsigned* shuffle(size_t size) {
         shuffle_array[i] = shuffle_array[randIndex];
         shuffle_array[randIndex] = temp; 
     } 
+    /*for(int i = 0; i < size; i++) {
+        printf("%d ", shuffle_array[i]);
+    }*/
+    //printf("SHUFFLE\n");
     return shuffle_array;
 }
 unsigned* almostsorted(size_t size) {
@@ -43,6 +47,7 @@ unsigned* almostsorted(size_t size) {
     for (i = 0; i < size; i++){
         sorted_array[i] = i + 1;
     }
+
     for (i = 0; i < size; i = i + 10) {
         int randInt = rand() % size; 
         int temp_sorted = sorted_array[i]; 
