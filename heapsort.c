@@ -15,11 +15,11 @@ static void heapify(unsigned *arr, int i, int size){
   }                                                       
   if(largest != i){                                       // if largest has changed
     if(arr[i] != arr[largest]){
-      //swap(arr, i, largest);
-      arr[largest] = arr[largest] - arr[i];
+      swap(arr, i, largest);
+      /*arr[largest] = arr[largest] - arr[i];
       arr[i] = arr[largest] + arr[i];
       arr[largest] = arr[i] - arr[largest];
-      /*unsigned temp;                                    
+      unsigned temp;                                    
       temp = arr[largest];
       arr[largest] = arr[i];
       arr[i] = temp;*/
@@ -33,11 +33,11 @@ void heapSort(unsigned *arr, size_t size){
     heapify(arr, i, size);                                // start heapify() from (size/2)-1 as "largest" 
   }
   for(int i = size-1; i >= 0; --i){                       // put largest last in array 
-    //swap(arr, i, 0);                                    // swaping by sending hole array exept largest value of all (--i) to heapify()
-    arr[0] = arr[0] - arr[i];
+    swap(arr, i, 0);                                    // swaping by sending hole array exept largest value of all (--i) to heapify()
+    /*arr[0] = arr[0] - arr[i];
     arr[i] = arr[0] + arr[i];
     arr[0] = arr[i] - arr[0];
-    /*unsigned temp;                                      
+    unsigned temp;                                      
     temp = arr[0];
     arr[0] = arr[i];                                    
     arr[i] = temp;*/                                        // swap root with last
