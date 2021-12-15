@@ -8,7 +8,7 @@
 #include "heapsort.h"
 #include "bubblesort.h"
 #include "random_array.h"
-#include "bubblesort.h"
+
 
 void printArray(unsigned *arr, size_t size){
   for(int i = 0; i < size; i++){
@@ -58,9 +58,9 @@ void sorting_test(unsigned* (radnomizer)(size_t), void (algorithm)(unsigned*, si
 
 int main(int argc, char *argv[]){
   printf("Sorting:\n");
-	sorting_test(shuffle, heapSort,  5, 0, 500);
+	//sorting_test(shuffle, bubblesort,  5, 0, 5000);
  // printf("Quicksort:\n");
-  //sorting_test(shuffle, quicksort,  11, 500, 500000, "file_name");
+  sorting_test(shuffle, quicksort,  11, 500, 500000);
   while(true){
     the_menu();
   }
