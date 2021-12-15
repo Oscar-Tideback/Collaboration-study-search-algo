@@ -31,15 +31,13 @@ static void sorting_test(unsigned* (radnomizer)(size_t), void (algorithm)(unsign
 
     if(i != 0){
       int value = (end-start), results, element = size_of_first_test/(num_of_tests-1);
-      int length = snprintf( NULL, 0, "%d", value );
-      char* valueAsString = malloc( length + 1 );
-      snprintf( valueAsString, length + 1, "%d", value );
+      int length = snprintf(NULL, 0, "%d", value);
+      char* valueAsString = malloc(length + 1);
+      snprintf( valueAsString, length + 1, "%d", value);
       strcpy(&str_arr[i][0], valueAsString);
       FILE *file = fopen(filename, "w");
       for(int i = 1; i < num_of_tests; i++){
-        printf("\n");
         results = fprintf(file, "%i, %s\n", element * i , str_arr+i);
-        printf("%s\n", str_arr+i);
       }
       if (results == EOF) {
       printf("Fail...");
