@@ -3,6 +3,8 @@
 #include "heapsort.h"
 #include "quicksort.h"
 #include "menu.h"
+#include "main.h"
+#include "random_array.h"
 
 /*void sorting_test(void (*algorithm)(unsigned*, size_t), size_t num_of_tests, size_t size_of_first_test, size_t size_increase, const char *filename);
 void heap_sort(unsigned *A, size_t n) {}
@@ -50,7 +52,7 @@ static void test_sortingalgorithm() {
         char *filename;
         scanf("%s", filename); 
 
-        sorting_test(algorithm, num_of_tests , size_of_first_test , size_increase, filename);
+        sorting_test(shuffle, algorithm, num_of_tests , size_of_first_test , size_increase, filename);
     }
 }
 void the_menu() {
