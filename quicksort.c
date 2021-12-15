@@ -4,7 +4,7 @@
 #include <stdio.h>
 
 // Swaps elements A[i] and A[j];
-static void swap(unsigned *A, int i, int j) {
+void swap(unsigned *A, int i, int j) {
     unsigned tmp = A[i];
     A[i] = A[j];
     A[j] = tmp;
