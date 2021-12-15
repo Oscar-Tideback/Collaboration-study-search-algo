@@ -5,11 +5,8 @@
 #include "menu.h"
 #include "main.h"
 #include "random_array.h"
+#include "bubblesort.h"
 
-/*void sorting_test(void (*algorithm)(unsigned*, size_t), size_t num_of_tests, size_t size_of_first_test, size_t size_increase, const char *filename);
-void heap_sort(unsigned *A, size_t n) {}
-void quicksort(unsigned *A, size_t n) {}*/
-void bubblesort(unsigned *A, size_t n) {}
 
 static void test_sortingalgorithm() {
         void (*algorithm)(unsigned*, size_t);
@@ -34,9 +31,10 @@ static void test_sortingalgorithm() {
             break;
         case 3: 
         algorithm = heapSort;
-            break;
+            break;       
+    }
 
-        printf("Enter number of tests: ");
+    printf("Enter number of tests: ");
         size_t num_of_tests; 
         scanf("%zu", &num_of_tests); 
 
@@ -48,13 +46,12 @@ static void test_sortingalgorithm() {
         size_t size_increase;
         scanf("%zu", &size_increase);
 
-        printf("Enter the name of the file you wont the result to: ");
-        char *filename;
-        scanf("%s", filename); 
-
-        sorting_test(shuffle, algorithm, num_of_tests , size_of_first_test , size_increase, filename);
-    }
+        //printf("Enter the name of the file you wont the result to: ");
+        //char filename[32];
+        //scanf("%s", filename); 
+        sorting_test(shuffle, algorithm, num_of_tests , size_of_first_test , size_increase);
 }
+
 void the_menu() {
     menu:
     printf("\n ****MENU**** \n");
@@ -79,8 +76,3 @@ void the_menu() {
     goto menu; 
 }
 
-/*int main() {
-    the_menu();
-    
-    return 0; 
-}*/
