@@ -37,7 +37,7 @@ void sorting_test(unsigned* (radnomizer)(size_t), void (algorithm)(unsigned*, si
     end = clock();
 
     if(i != 0){
-      int value = (end-start), results, element = size_of_first_test/(num_of_tests)/1000;
+      int value = (end-start), results, element = size_of_first_test/(num_of_tests);///1000;  Denna använder jag då mina tider har mindre antal siffror.
       int length = snprintf(NULL, 0, "%d", value);
       //char* valueAsString = malloc(length + 1);
       snprintf(&str_arr[i][0], length + 1, "%d", value);
