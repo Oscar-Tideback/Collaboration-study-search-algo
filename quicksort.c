@@ -1,5 +1,6 @@
 #include "quicksort.h"
-#include "menu.h"
+#include "help_functions.h"
+
 #include <stddef.h>
 #include <stdio.h>
 
