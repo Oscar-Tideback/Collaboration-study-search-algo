@@ -21,31 +21,31 @@ void sorting_test(unsigned* (radnomizer)(size_t), void (algorithm)(unsigned*, si
   clock_t start, end;
   double cpu_time_used;
   char str_arr[64][32];
-  unsigned* arr = radnomizer(size_of_first_test); 
+  int current_test = size_of_first_test;
+  unsigned* arr = radnomizer(current_test); 
   const char *filename;
   if (algorithm == quicksort) { filename = "quicksort.txt"; }
   else if(algorithm == heapSort){ filename = "heapsort.txt"; }
   else if(algorithm == bubblesort){filename = "bubblesort.txt";}
-  //printArray(arr, size_of_first_test);
-  for(int i = 0; i < num_of_tests+1; i++){
+  for(int i = 0; i < num_of_tests; i++){
+    
     if(i != 0){// Räkna bort första körning
-      size_of_first_test = size_of_first_test + size_increase;  
-      arr = radnomizer(size_of_first_test); 
+      current_test = current_test + size_increase;  
+      arr = radnomizer(current_test); 
     }
     start = clock();
-    algorithm(arr, size_of_first_test);
+    algorithm(arr, current_test);
     end = clock();
 
     if(i != 0){
-      int value = (end-start), results, element = size_of_first_test/(num_of_tests);///1000;  Denna använder jag då mina tider har mindre antal siffror.
+      int value = (end-start), results; 
+      printf("%d\n%d\n%d\n", num_of_tests, size_increase, size_of_first_test);
       int length = snprintf(NULL, 0, "%d", value);
-      //char* valueAsString = malloc(length + 1);
       snprintf(&str_arr[i][0], length + 1, "%d", value);
-      //snprintf(valueAsString, length + 1, "%d", value);
-      //strcpy(&str_arr[i][0], valueAsString);
       FILE *file = fopen(filename, "w");
       for(int i = 1; i < num_of_tests; i++){
-        results = fprintf(file, "%i, %s\n", element * i , *(str_arr+i));
+        results = fprintf(file, "%i, %s\n", ((i * size_increase) + size_of_first_test), *(str_arr+i));
+
       }
       if (results == EOF) {
         printf("Fail...");
@@ -60,7 +60,7 @@ int main(int argc, char *argv[]){
   printf("Sorting:\n");
 	//sorting_test(shuffle, bubblesort,  5, 0, 5000);
  // printf("Quicksort:\n");
-  sorting_test(shuffle, quicksort,  11, 500, 500000);
+  sorting_test(shuffle, quicksort,  4, 33, 50000);
   while(true){
     the_menu();
   }

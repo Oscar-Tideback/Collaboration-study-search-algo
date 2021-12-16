@@ -18,11 +18,7 @@ static void heapify(unsigned *arr, int i, int size){
       swap(arr, i, largest);
       /*arr[largest] = arr[largest] - arr[i];
       arr[i] = arr[largest] + arr[i];
-      arr[largest] = arr[i] - arr[largest];
-      unsigned temp;                                    
-      temp = arr[largest];
-      arr[largest] = arr[i];
-      arr[i] = temp;*/
+      arr[largest] = arr[i] - arr[largest];*/             
       heapify(arr, largest, size);                        // test again to see if larges is largest
     }
   }                                                       
@@ -33,14 +29,10 @@ void heapSort(unsigned *arr, size_t size){
     heapify(arr, i, size);                                // start heapify() from (size/2)-1 as "largest" 
   }
   for(int i = size-1; i >= 0; --i){                       // put largest last in array 
-    swap(arr, i, 0);                                    // swaping by sending hole array exept largest value of all (--i) to heapify()
+    swap(arr, i, 0);                                      // swaping by sending hole array exept largest value of all (size-1) to heapify()
     /*arr[0] = arr[0] - arr[i];
     arr[i] = arr[0] + arr[i];
-    arr[0] = arr[i] - arr[0];
-    unsigned temp;                                      
-    temp = arr[0];
-    arr[0] = arr[i];                                    
-    arr[i] = temp;*/                                        // swap root with last
-    heapify(arr, 0, i);                                   // search for largest value in heap, "i" will be size-1, one less for every call
+    arr[0] = arr[i] - arr[0];*/
+    heapify(arr, 0, i);                                   // swap root with last, search for largest value in heap, "i" will be size-1, one less for every call
   }
 }
