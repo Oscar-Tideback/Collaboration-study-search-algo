@@ -31,7 +31,7 @@ int main (void) {
     //size_t N[3] = {10, 20, 30};
 
     sorting_test(random_array, quicksort, N, size_N, "quicksort.txt");
-    sorting_test(random_array, heapSort, N, size_N, "heapsort.txt");
+    sorting_test(random_array, heapsort, N, size_N, "heapsort.txt");
 
     return 0;
 }  
