@@ -24,7 +24,7 @@ static void heapify(unsigned *arr, int i, int size){
   }                                                       
 }
 
-void heapSort(unsigned *arr, size_t size){
+void heapsort(unsigned *arr, size_t size){
   for(int i = (size/2) -1; i >= 0; --i){                  // will ignore leafs and start at (size/2)-1 and go to 0 "root"
     heapify(arr, i, size);                                // start heapify() from (size/2)-1 as "largest" 
   }
