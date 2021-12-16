@@ -1,14 +1,8 @@
 #include "quicksort.h"
-#include "menu.h"
+#include "help_functions.h"
+
 #include <stddef.h>
 #include <stdio.h>
-
-// Swaps elements A[i] and A[j];
-void swap(unsigned *A, int i, int j) {
-    unsigned tmp = A[i];
-    A[i] = A[j];
-    A[j] = tmp;
-}
 
 // Divides array into two partitions
 static int partition(unsigned *A, int low, int high) {

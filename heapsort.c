@@ -1,7 +1,7 @@
 #include <stddef.h>
 #include <stdio.h>
 #include "heapsort.h"
-#include "quicksort.h"
+#include "help_functions.h"
 #include "menu.h"
 
 // max heap, make largest value as root "child key will be less or same as parent"
