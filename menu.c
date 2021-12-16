@@ -67,7 +67,7 @@ static void test_sortingalgorithm() {
         algorithm = quicksort;
             break;
         case 3: 
-        algorithm = heapSort;
+        algorithm = heapsort;
             break;       
     }
 

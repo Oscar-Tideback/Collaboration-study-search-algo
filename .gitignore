@@ -2,3 +2,16 @@ a.exe
 bubblesort.txt
 quicksort.txt
 heapsort.txt
+all_runs.zip
+almostsorted.zip
+bubblesort - almostsorted.txt
+bubblesort - random_arry.txt
+bubblesort - shuffle.txt
+qsort_std-almostsorted.txt
+qsort_std-random_array.txt
+qsort_std-shuffle.txt
+qsort_std.txt
+qsort_std.zip
+random_array.zip
+run_info.txt
+shuffle.zip
