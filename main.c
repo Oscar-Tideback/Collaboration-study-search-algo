@@ -23,6 +23,8 @@ void sorting_test(unsigned* (radnomizer)(size_t), void (algorithm)(unsigned*, si
   int current_test = size_of_first_test;
   unsigned* arr = radnomizer(current_test);
   const char *filename;
+  int counter = 1;
+
   if(radnomizer == shuffle){
     if (algorithm == quicksort){ filename = "01shuffle_quicksort.txt"; }
     else if(algorithm == heapsort){ filename = "01shuffle_heapsort.txt"; }
@@ -61,7 +63,8 @@ void sorting_test(unsigned* (radnomizer)(size_t), void (algorithm)(unsigned*, si
     start = clock();
     algorithm(arr, current_test);
     end = clock();
-    printf("Run: %d\nTime: %lu\n",current_test, (end-start));
+    counter++;
+    printf("  Run %i: %d\nTime: %lu\n", counter, current_test, (end-start));
     if(i != 0){
       int value = (end-start), results; 
       int length = snprintf(NULL, 0, "%d", value);
@@ -82,7 +85,7 @@ void sorting_test(unsigned* (radnomizer)(size_t), void (algorithm)(unsigned*, si
 int main(int argc, char *argv[]){
   printf("Sorting:\n");
 
-  //sorting_test(random_array,       qsort_std,  34, 10000, 100000);
+  //sorting_test(random_array,       qsort_std,  34, 10000, 50000);
 
   sorting_test( random_array,       quicksort,   34, 10000, 2000000);
   sorting_test( shuffle,            quicksort,   34, 10000, 2000000);
