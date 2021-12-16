@@ -19,15 +19,14 @@ void printArray(unsigned *arr, size_t size){
 void sorting_test(unsigned* (radnomizer)(size_t), void (algorithm)(unsigned*, size_t),
                   size_t num_of_tests, size_t size_of_first_test, size_t size_increase){
   clock_t start, end;
-  //double cpu_time_used;
   char str_arr[128][32];
   int current_test = size_of_first_test;
   unsigned* arr = radnomizer(current_test);
   const char *filename;
-  if (algorithm == quicksort){ filename = "quicksort.txt"; }
-  else if(algorithm == heapsort){ filename = "heapsort.txt"; }
-  else if(algorithm == qsort_std){ filename = "qsort_std.txt"; }
-  else if(algorithm == bubblesort){ filename = "bubblesort.txt"; }
+  if (algorithm == quicksort){ filename = "01quicksort.txt"; }
+  else if(algorithm == heapsort){ filename = "01heapsort.txt"; }
+  else if(algorithm == qsort_std){ filename = "01qsort_std.txt"; }
+  else if(algorithm == bubblesort){ filename = "01bubblesort.txt"; }
   for(int i = 0; i < num_of_tests; i++){
     if(i != 0){// Räkna bort första körning
       current_test = current_test + size_increase;  
@@ -45,7 +44,7 @@ void sorting_test(unsigned* (radnomizer)(size_t), void (algorithm)(unsigned*, si
       for(int i = 1; i < num_of_tests; i++){
         results = fprintf(file, "%lli, %s\n", ((i * size_increase) + size_of_first_test), *(str_arr+i));
       }
-      if (results == EOF) {
+      if (results == EOF){
         printf("File fail...");
       }
       fclose(file);
@@ -59,10 +58,10 @@ int main(int argc, char *argv[]){
   //sorting_test(shuffle, bubblesort,  25, 10000, 2000);
   //sorting_test(shuffle, quicksort,  25, 33, 500000);
 	//sorting_test(almostsorted, heapSort,  3, 33, 100000000);
- // printf("Quicksort:\n");
+  //printf("Quicksort:\n");
   //sorting_test(shuffle , quicksort,  1, 5000, 100);
   sorting_test(random_array, qsort_std, 25, 33, 500000);
-  while(true){
+  /*while(true){
     the_menu();
-  }
+  }*/
 }
