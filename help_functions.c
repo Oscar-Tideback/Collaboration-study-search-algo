@@ -6,3 +6,9 @@ void swap(unsigned *A, int i, int j) {
     A[i] = A[j];
     A[j] = tmp;
 }
+
+void printArray(unsigned *arr, size_t size){
+  for(int i = 0; i < size; i++){
+    printf("%u ", arr[i]);
+  }
+}
