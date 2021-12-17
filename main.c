@@ -22,31 +22,31 @@ void sorting_test(unsigned* (radnomizer)(size_t), void (algorithm)(unsigned*, si
 
   if(radnomizer == unique_random){
     if (algorithm == quicksort){ filename = "01shuffle_quicksort.txt"; }
-    else if(algorithm == heapsort){ filename = "01shuffle_heapsort.txt"; }
+    else if(algorithm == heap_sort){ filename = "01shuffle_heapsort.txt"; }
     else if(algorithm == qsort_std){ filename = "01shuffle_qsort_std.txt"; }
     else if(algorithm == bubblesort){ filename = "01shuffle_bubblesort.txt"; }
   }
   else if(radnomizer == almostsorted){
     if (algorithm == quicksort){ filename = "01almostsorted_quicksort.txt"; }
-    else if(algorithm == heapsort){ filename = "01almostsorted_heapsort.txt"; }
+    else if(algorithm == heap_sort){ filename = "01almostsorted_heapsort.txt"; }
     else if(algorithm == qsort_std){ filename = "01almostsorted_qsort_std.txt"; }
     else if(algorithm == bubblesort){ filename = "01almostsorted_bubblesort.txt"; }
   }
-  else if(radnomizer == random){
+  else if(radnomizer == random_){
     if (algorithm == quicksort){ filename = "01random_array_quicksort.txt"; }
-    else if(algorithm == heapsort){ filename = "01random_array_heapsort.txt"; }
+    else if(algorithm == heap_sort){ filename = "01random_array_heapsort.txt"; }
     else if(algorithm == qsort_std){ filename = "01random_array_qsort_std.txt"; }
     else if(algorithm == bubblesort){ filename = "01random_array_bubblesort.txt"; }
   }
   else if(radnomizer == unique_random){
     if (algorithm == quicksort){ filename = "01qunique_random_quicksort.txt"; }
-    else if(algorithm == heapsort){ filename = "01unique_random_heapsort.txt"; }
+    else if(algorithm == heap_sort){ filename = "01unique_random_heapsort.txt"; }
     else if(algorithm == qsort_std){ filename = "01unique_randomsort_std.txt"; }
     else if(algorithm == bubblesort){ filename = "01unique_random_bubblesort.txt"; }
   }
   else if(radnomizer == sorted){
     if (algorithm == quicksort){ filename = "01sorted_quicksort.txt"; }
-    else if(algorithm == heapsort){ filename = "01sorted_heapsort.txt"; }
+    else if(algorithm == heap_sort){ filename = "01sorted_heapsort.txt"; }
     else if(algorithm == qsort_std){ filename = "01sorted_qsort_std.txt"; }
     else if(algorithm == bubblesort){ filename = "01sorted_bubblesort.txt"; }
   }
@@ -68,7 +68,7 @@ void sorting_test(unsigned* (radnomizer)(size_t), void (algorithm)(unsigned*, si
       snprintf(&str_arr[i][0], length + 1, "%d", value);
       FILE *file = fopen(filename, "w");
       for(int i = 1; i < num_of_tests; i++){
-        results = fprintf(file, "%lli, %s\n", ((i * size_increase) + size_of_first_test), *(str_arr+i));
+        results = fprintf(file, "%lu, %s\n", ((i * size_increase) + size_of_first_test), *(str_arr+i));
       }
       if (results == EOF){
         printf("File fail...");
@@ -90,11 +90,11 @@ int main(int argc, char *argv[]){
   sorting_test( reversed_sorted,    quicksort,   34, 10000, 500000);
   sorting_test( sorted,             quicksort,   34, 10000, 500000);*/
 	
-  sorting_test( random,             heapsort,    34, 10000, 500000);
-  sorting_test( unique_random,      heapsort,    34, 10000, 500000);
-  sorting_test( almostsorted,       heapsort,    34, 10000, 500000);
-  sorting_test( reversed_sorted,    heapsort,    34, 10000, 500000);
-  sorting_test( sorted,             heapsort,    34, 10000, 500000);
+/*   sorting_test( random_,             heap_sort,    34, 10000, 500000);
+  sorting_test( unique_random,      heap_sort,    34, 10000, 500000);
+  sorting_test( almostsorted,       heap_sort,    34, 10000, 500000);
+  sorting_test( reversed_sorted,    heap_sort,    34, 10000, 500000);
+  sorting_test( sorted,             heap_sort,    34, 10000, 500000); */
 
   /*sorting_test( random,             qsort_std,   34, 10000, 500000);
   sorting_test( unique_random,      qsort_std,   34, 10000, 500000);
@@ -105,7 +105,7 @@ int main(int argc, char *argv[]){
   sorting_test( random,             bubblesort,  14, 10000, 10000);
   sorting_test( unique_random,      bubblesort,  14, 10000, 10000);
   sorting_test( almostsorted,       bubblesort,  14, 10000, 10000);*/
-  /*while(true){
+  while(true){
     the_menu();
-  }*/
+  }
 }

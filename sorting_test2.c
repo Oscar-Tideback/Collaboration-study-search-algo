@@ -1,11 +1,11 @@
-#include "sorting_test.h"
+#include "sorting_test2.h"
 
 #include <stddef.h>
 #include <time.h>
 #include <stdio.h>
 #include <stdlib.h>
 
-void sorting_test(unsigned* (randomizer)(size_t), void (algorithm)(unsigned*, size_t), size_t *N, size_t size_N, const char *filename) {
+void sorting_test2(unsigned* (randomizer)(size_t), void (algorithm)(unsigned*, size_t), size_t *N, size_t size_N, const char *filename) {
     
     // Variables
     size_t n;

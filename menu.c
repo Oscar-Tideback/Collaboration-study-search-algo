@@ -30,7 +30,7 @@ static void test_sortingalgorithm() {
             randomizer = sorted;// Sorted
                 break;
             case 2: 
-            randomizer = random;
+            randomizer = random_;
                 break;
             case 3: 
             randomizer = almostsorted;
@@ -60,7 +60,7 @@ static void test_sortingalgorithm() {
         algorithm = quicksort;
             break;
         case 3: 
-        algorithm = heapsort;
+        algorithm = heap_sort;
             break;       
     }
 

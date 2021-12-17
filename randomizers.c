@@ -6,7 +6,7 @@
 #include <stdlib.h>
 #include <time.h> 
 
-unsigned* random(size_t size) {
+unsigned* random_(size_t size) {
     int i;
     time_t t1;
     unsigned* array = malloc(sizeof(unsigned) * size); 
@@ -18,13 +18,13 @@ unsigned* random(size_t size) {
 }
 
 unsigned* reversed_sorted(size_t size) {
-    unsigned* array = random(size);
+    unsigned* array = random_(size);
     qsort_std_reversed(array, size);
     return array;
 }
 
 unsigned* sorted(size_t size) {
-    unsigned* array = random(size);
+    unsigned* array = random_(size);
     qsort_std(array, size);
     return array;
 }

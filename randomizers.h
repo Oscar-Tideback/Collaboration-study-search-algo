@@ -2,7 +2,7 @@
 #define RANDOMIZERS_H
 #include <stdlib.h>
 
-unsigned* random(size_t size);
+unsigned* random_(size_t size);
 unsigned* reversed_sorted(size_t size);
 unsigned* sorted(size_t size);
 unsigned* unique_random(size_t size);
