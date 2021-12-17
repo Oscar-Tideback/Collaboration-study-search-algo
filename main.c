@@ -7,25 +7,20 @@
 #include "quicksort.h"
 #include "heapsort.h"
 #include "bubblesort.h"
-#include "random_array.h"
+#include "randomizers.h"
 #include "qsort_std.h"
-
-void printArray(unsigned *arr, size_t size){
-  for(int i = 0; i < size; i++){
-    printf("%u ", arr[i]);
-  }
-}
 
 void sorting_test(unsigned* (radnomizer)(size_t), void (algorithm)(unsigned*, size_t),
                   size_t num_of_tests, size_t size_of_first_test, size_t size_increase){
   clock_t start, end;
+  //time_t start, end;
+     
   char str_arr[128][32];
-  int current_test = size_of_first_test;
+  int current_test = size_of_first_test, counter = 1;
   unsigned* arr = radnomizer(current_test);
   const char *filename;
-  int counter = 1;
 
-  if(radnomizer == shuffle){
+  if(radnomizer == unique_random){
     if (algorithm == quicksort){ filename = "01shuffle_quicksort.txt"; }
     else if(algorithm == heapsort){ filename = "01shuffle_heapsort.txt"; }
     else if(algorithm == qsort_std){ filename = "01shuffle_qsort_std.txt"; }
@@ -37,34 +32,36 @@ void sorting_test(unsigned* (radnomizer)(size_t), void (algorithm)(unsigned*, si
     else if(algorithm == qsort_std){ filename = "01almostsorted_qsort_std.txt"; }
     else if(algorithm == bubblesort){ filename = "01almostsorted_bubblesort.txt"; }
   }
-  else if(radnomizer == random_array){
+  else if(radnomizer == random){
     if (algorithm == quicksort){ filename = "01random_array_quicksort.txt"; }
     else if(algorithm == heapsort){ filename = "01random_array_heapsort.txt"; }
     else if(algorithm == qsort_std){ filename = "01random_array_qsort_std.txt"; }
     else if(algorithm == bubblesort){ filename = "01random_array_bubblesort.txt"; }
   }
-  /*else if(radnomizer == qsort_std){
-    if (algorithm == quicksort){ filename = "01qsort_std_quicksort.txt"; }
-    else if(algorithm == heapsort){ filename = "01qsort_std_heapsort.txt"; }
-    else if(algorithm == qsort_std){ filename = "01qsort_std_qsort_std.txt"; }
-    else if(algorithm == bubblesort){ filename = "01qsort_std_bubblesort.txt"; }
+  else if(radnomizer == unique_random){
+    if (algorithm == quicksort){ filename = "01qunique_random_quicksort.txt"; }
+    else if(algorithm == heapsort){ filename = "01unique_random_heapsort.txt"; }
+    else if(algorithm == qsort_std){ filename = "01unique_randomsort_std.txt"; }
+    else if(algorithm == bubblesort){ filename = "01unique_random_bubblesort.txt"; }
   }
-  else if(radnomizer == radnomizer){
-    if (algorithm == quicksort){ filename = "01quicksort.txt"; }
-    else if(algorithm == heapsort){ filename = "01heapsort.txt"; }
-    else if(algorithm == qsort_std){ filename = "01qsort_std.txt"; }
-    else if(algorithm == bubblesort){ filename = "01bubblesort.txt"; }
-  }*/
+  else if(radnomizer == sorted){
+    if (algorithm == quicksort){ filename = "01sorted_quicksort.txt"; }
+    else if(algorithm == heapsort){ filename = "01sorted_heapsort.txt"; }
+    else if(algorithm == qsort_std){ filename = "01sorted_qsort_std.txt"; }
+    else if(algorithm == bubblesort){ filename = "01sorted_bubblesort.txt"; }
+  }
   for(int i = 0; i < num_of_tests; i++){
     if(i != 0){// Räkna bort första körning
       current_test = current_test + size_increase;  
       arr = radnomizer(current_test); 
     }
+    //start = time(NULL);
     start = clock();
     algorithm(arr, current_test);
     end = clock();
+    //end = time(NULL);
     counter++;
-    printf("  Run %i: %d\nTime: %lu\n", counter, current_test, (end-start));
+    printf("Run %i: %d\nTime: %lu\n", counter, current_test, (end-start));
     if(i != 0){
       int value = (end-start), results; 
       int length = snprintf(NULL, 0, "%d", value);
@@ -85,23 +82,29 @@ void sorting_test(unsigned* (radnomizer)(size_t), void (algorithm)(unsigned*, si
 int main(int argc, char *argv[]){
   printf("Sorting:\n");
 
-  //sorting_test(random_array,       qsort_std,  34, 10000, 50000);
+  //sorting_test(random,       heapsort,  34, 10000, 50000);
 
-  sorting_test( random_array,       quicksort,   34, 10000, 2000000);
-  sorting_test( shuffle,            quicksort,   34, 10000, 2000000);
-  sorting_test( almostsorted,       quicksort,   34, 10000, 2000000);
+  /*sorting_test( random,             quicksort,   34, 10000, 500000);
+  sorting_test( unique_random,      quicksort,   34, 10000, 500000);
+  sorting_test( almostsorted,       quicksort,   34, 10000, 500000);
+  sorting_test( reversed_sorted,    quicksort,   34, 10000, 500000);
+  sorting_test( sorted,             quicksort,   34, 10000, 500000);*/
 	
-  sorting_test( random_array,       heapsort,    34, 10000, 2000000);
-  sorting_test( shuffle,            heapsort,    34, 10000, 2000000);
-  sorting_test( almostsorted,       heapsort,    34, 10000, 2000000);
+  sorting_test( random,             heapsort,    34, 10000, 500000);
+  sorting_test( unique_random,      heapsort,    34, 10000, 500000);
+  sorting_test( almostsorted,       heapsort,    34, 10000, 500000);
+  sorting_test( reversed_sorted,    heapsort,    34, 10000, 500000);
+  sorting_test( sorted,             heapsort,    34, 10000, 500000);
 
-  sorting_test( random_array,       qsort_std,   34, 10000, 2000000);
-  sorting_test( shuffle,            qsort_std,   34, 10000, 2000000);
-  sorting_test( almostsorted,       qsort_std,   34, 10000, 2000000);
+  /*sorting_test( random,             qsort_std,   34, 10000, 500000);
+  sorting_test( unique_random,      qsort_std,   34, 10000, 500000);
+  sorting_test( almostsorted,       qsort_std,   34, 10000, 500000);
+  sorting_test( reversed_sorted,    qsort_std,   34, 10000, 500000);
+  sorting_test( sorted,             qsort_std,   34, 10000, 500000);
 
-  sorting_test( random_array,       bubblesort,  34, 10000, 2000);
-  sorting_test( shuffle,            bubblesort,  34, 10000, 2000);
-  sorting_test( almostsorted,       bubblesort,  34, 10000, 2000);
+  sorting_test( random,             bubblesort,  14, 10000, 10000);
+  sorting_test( unique_random,      bubblesort,  14, 10000, 10000);
+  sorting_test( almostsorted,       bubblesort,  14, 10000, 10000);*/
   /*while(true){
     the_menu();
   }*/

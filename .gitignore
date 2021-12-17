@@ -17,3 +17,14 @@ run_info.txt
 shuffle.zip
 01random_array_qsort_std.txt
 01random_array_quicksort.txt
+01almostsorted_bubblesort.txt
+01almostsorted_heapsort.txt
+01almostsorted_qsort_std.txt
+01almostsorted_quicksort.txt
+01random_array_bubblesort.txt
+01random_array_heapsort.txt
+01shuffle_bubblesort.txt
+01shuffle_heapsort.txt
+01shuffle_qsort_std.txt
+01shuffle_quicksort.txt
+2021121700001.zip

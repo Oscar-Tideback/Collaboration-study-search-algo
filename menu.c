@@ -4,20 +4,16 @@
 #include "quicksort.h"
 #include "menu.h"
 #include "main.h"
-#include "random_array.h"
+#include "randomizers.h"
 #include "bubblesort.h"
 
 
 static void test_sortingalgorithm() {
-        
-
-
-
         unsigned* (*randomizer)(size_t);
         void (*algorithm)(unsigned*, size_t);
+
         printf("Test soring algorithm\n");
-        printf("\n");
-        
+        printf("\n");        
         printf("Choose randomizer\n");
         printf("1: Sorted\n");
         printf("2: Unsorted\n");
@@ -31,24 +27,21 @@ static void test_sortingalgorithm() {
         switch (choice2) 
         {
             case 1: 
-            randomizer = random_array;// Sorted
+            randomizer = sorted;// Sorted
                 break;
             case 2: 
-            randomizer = random_array;
+            randomizer = random;
                 break;
             case 3: 
             randomizer = almostsorted;
                 break;  
             case 4: 
-            randomizer = random_array;// Reversed sorted
+            randomizer = reversed_sorted;// Reversed sorted
                 break; 
             case 5: 
-            randomizer = shuffle;
+            randomizer = unique_random;
                 break;          
         }
-
-
-
 
         printf("Choose algorithm\n");
         printf("1: Bubblesort\n");
@@ -83,9 +76,6 @@ static void test_sortingalgorithm() {
         size_t size_increase;
         scanf("%zu", &size_increase);
 
-        //printf("Enter the name of the file you wont the result to: ");
-        //char filename[32];
-        //scanf("%s", filename); 
         sorting_test(randomizer, algorithm, num_of_tests , size_of_first_test , size_increase);
 }
 
@@ -112,4 +102,3 @@ void the_menu() {
     }
     goto menu; 
 }
-
