@@ -8,6 +8,6 @@
 // Swaps elements A[i] and A[j];
 void swap(unsigned *A, int i, int j);
 void printArray(unsigned *arr, size_t size);
-static bool is_sorted (unsigned *A, size_t n);
+bool is_sorted (unsigned *A, size_t n);
 
 #endif // #ifndef HELP_FUNCTIONS_H
