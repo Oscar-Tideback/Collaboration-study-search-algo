@@ -3,7 +3,6 @@
 #include "heapsort.h"
 #include "help_functions.h"
 #include "menu.h"
-// Visual.....
 
 // max heap, make largest value as root "child key will be less or same as parent"
 static void heapify(unsigned *arr, int i, int size){   

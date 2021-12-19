@@ -6,6 +6,7 @@
 #include "main.h"
 #include "randomizers.h"
 #include "bubblesort.h"
+#include "qsort_std.h"
 
 
 static void test_sortingalgorithm() {
@@ -27,7 +28,7 @@ static void test_sortingalgorithm() {
         switch (choice2) 
         {
             case 1: 
-            randomizer = sorted;// Sorted
+            randomizer = sorted;
                 break;
             case 2: 
             randomizer = random;
@@ -36,7 +37,7 @@ static void test_sortingalgorithm() {
             randomizer = almostsorted;
                 break;  
             case 4: 
-            randomizer = reversed_sorted;// Reversed sorted
+            randomizer = reversed_sorted;
                 break; 
             case 5: 
             randomizer = unique_random;
@@ -47,6 +48,7 @@ static void test_sortingalgorithm() {
         printf("1: Bubblesort\n");
         printf("2: Quicksort\n");
         printf("3: Heapsort\n");
+        printf("4: Qsort STD\n");
 
         int choice1;
         scanf("%d", &choice1);
@@ -62,6 +64,9 @@ static void test_sortingalgorithm() {
         case 3: 
         algorithm = heapsort;
             break;       
+        case 4: 
+        algorithm = qsort_std;
+            break; 
     }
 
     printf("Enter number of tests: ");

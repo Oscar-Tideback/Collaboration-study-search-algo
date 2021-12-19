@@ -1,4 +1,4 @@
-#ifndef QSORT_STDH
+#ifndef QSORT_STD_H
 #define QSORT_STD_H
 #include <stddef.h>
 

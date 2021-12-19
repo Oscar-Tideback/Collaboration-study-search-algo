@@ -80,17 +80,7 @@ void sorting_test(unsigned* (radnomizer)(size_t), void (algorithm)(unsigned*, si
   }
   free(arr);  
 }
-/*
-void printGraph(){
-  char print[128][128];
-  for(int i = 0; i < 0; i++){
-    if(print[i][128] == 1)
-      printf("1");
-    else if(print[i][128] == 0)
-      printf("0");
-  }
-}
-*/
+
 int main(int argc, char *argv[]){
   printf("Sorting:\n");
   printf("\n\nheapsort reversed_sorted\n");
@@ -122,9 +112,9 @@ int main(int argc, char *argv[]){
   sorting_test( unique_random,      bubblesort,  14, 10000, 10000);
   sorting_test( almostsorted,       bubblesort,  14, 10000, 10000);
   sorting_test( reversed_sorted,    bubblesort,  14, 10000, 10000);
-  sorting_test( sorted,             bubblesort,  14, 10000, 10000);*/
+  sorting_test( sorted,             bubblesort,  14, 10000, 10000);
 
-  /*while(true){
+  while(true){
     the_menu();
   }*/
 }
