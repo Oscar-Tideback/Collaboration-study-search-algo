@@ -20,12 +20,20 @@ unsigned* random(size_t size) {
 unsigned* reversed_sorted(size_t size) {
     unsigned* array = random(size);
     qsort_std_reversed(array, size);
+    /*unsigned* array = malloc(sizeof(unsigned) * size); 
+    for (int i = size; i > 0; i--){
+        array[i] = i - 1;
+    }*/
     return array;
 }
 
 unsigned* sorted(size_t size) {
     unsigned* array = random(size);
     qsort_std(array, size);
+    /*unsigned* array = malloc(sizeof(unsigned) * size); 
+    for (int i = 0; i < size; i++){
+        array[i] = i + 1;
+    }*/
     return array;
 }
 

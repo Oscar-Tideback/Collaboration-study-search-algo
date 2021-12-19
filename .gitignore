@@ -28,3 +28,18 @@ shuffle.zip
 01shuffle_qsort_std.txt
 01shuffle_quicksort.txt
 2021121700001.zip
+01random_heapsort.txt
+01random_qsort_std.txt
+01random_quicksort.txt
+01reversed_sorted_heapsort.txt
+01sorted_heapsort.txt
+01unique_random_heapsort.txt
+01unique_random_qsort_std.txt
+01unique_random_quicksort.txt
+dump/01random_heapsort.txt
+dump/01random_quicksort.txt
+dump/01sorted_heapsort.txt
+dump/01sorted_quicksort.txt
+dump/01unique_random_quicksort.txt
+TIME DUMP/01random_heapsort.txt
+TIME DUMP/01unique_random_heapsort.txt

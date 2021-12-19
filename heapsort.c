@@ -3,10 +3,11 @@
 #include "heapsort.h"
 #include "help_functions.h"
 #include "menu.h"
+// Visual.....
 
 // max heap, make largest value as root "child key will be less or same as parent"
 static void heapify(unsigned *arr, int i, int size){   
-  int largest = i, right = (2*i) + 2, left = (2*i) + 1;   // asumes (initialize) that largest is "root" in subtree
+  int largest = i, right = (2*i) + 2, left = (2*i) + 1;   // asumes (initialize) that largest "largest = i" is "root" in subtree
   if(left < size && arr[left] > arr[largest]){            // check if left child is grater then parrent (root "largest") -
     largest = left;                                       //and it should not be larger then size, ignoring leafs. 
   }
@@ -29,7 +30,7 @@ void heapsort(unsigned *arr, size_t size){
     heapify(arr, i, size);                                // start heapify() from (size/2)-1 as "largest" 
   }
   for(int i = size-1; i >= 0; --i){                       // put largest last in array 
-    swap(arr, i, 0);                                      // swaping by sending hole array exept largest value of all (size-1) to heapify()
+    swap(arr, i, 0);                                      // swaping by sending "arr" exept largest value of all (size-1) to heapify()
     /*arr[0] = arr[0] - arr[i];
     arr[i] = arr[0] + arr[i];
     arr[0] = arr[i] - arr[0];*/
