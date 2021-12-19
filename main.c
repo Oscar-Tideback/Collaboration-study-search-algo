@@ -1,14 +1,9 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdbool.h> 
-#include <time.h> 
-#include <string.h>
-#include "menu.h"
+#include "randomizers.h"
+#include "heapsort.h"
 #include "quicksort.h"
 #include "heapsort.h"
 #include "bubblesort.h"
-#include "randomizers.h"
-#include "qsort_std.h"
+#include "sorting_test2.h"
 
 void sorting_test(unsigned* (radnomizer)(size_t), void (algorithm)(unsigned*, size_t),
                   size_t num_of_tests, size_t size_of_first_test, size_t size_increase){
@@ -77,9 +72,8 @@ void sorting_test(unsigned* (radnomizer)(size_t), void (algorithm)(unsigned*, si
       }
       fclose(file);
     }
-  }
-  free(arr);  
-}
+    return true;
+} */
 
 int main(int argc, char *argv[]){
   printf("Sorting:\n");
