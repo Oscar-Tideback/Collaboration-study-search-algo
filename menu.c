@@ -31,7 +31,7 @@ static void test_sortingalgorithm() {
             randomizer = sorted;
                 break;
             case 2: 
-            randomizer = random;
+            randomizer = random_;
                 break;
             case 3: 
             randomizer = almostsorted;

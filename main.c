@@ -4,6 +4,11 @@
 #include "heapsort.h"
 #include "bubblesort.h"
 #include "sorting_test2.h"
+#include "qsort_std.h"
+
+#include <time.h>
+#include <stdio.h>
+#include <stdbool.h>
 
 void sorting_test(unsigned* (radnomizer)(size_t), void (algorithm)(unsigned*, size_t),
                   size_t num_of_tests, size_t size_of_first_test, size_t size_increase){
@@ -26,7 +31,7 @@ void sorting_test(unsigned* (radnomizer)(size_t), void (algorithm)(unsigned*, si
     else if(algorithm == qsort_std){ filename = "01almostsorted_qsort_std.txt"; }
     else if(algorithm == bubblesort){ filename = "01almostsorted_bubblesort.txt"; }
   }
-  else if(radnomizer == random){
+  else if(radnomizer == random_){
     if (algorithm == quicksort){ filename = "01random_quicksort.txt"; }
     else if(algorithm == heapsort){ filename = "01random_heapsort.txt"; }
     else if(algorithm == qsort_std){ filename = "01random_qsort_std.txt"; }
@@ -65,17 +70,18 @@ void sorting_test(unsigned* (radnomizer)(size_t), void (algorithm)(unsigned*, si
         int length = snprintf(NULL, 0, "%d", value);
         snprintf(&str_arr[i][0], length + 1, "%d", value);
         for(int i = 1; i < num_of_tests; i++){
-          results = fprintf(file, "%lli, %s\n", ((i * size_increase) + size_of_first_test)/1000, *(str_arr+i));
+          results = fprintf(file, "%zu, %s\n", ((i * size_increase) + size_of_first_test)/1000, *(str_arr+i));
       }
       if (results == EOF){
         printf("File fail...");
       }
       fclose(file);
     }
-    return true;
-} */
+    return;
+} 
+                  }
 
-int main(int argc, char *argv[]){
+int main(int argc, char *argv[]) {
   printf("Sorting:\n");
   printf("\n\nheapsort reversed_sorted\n");
   sorting_test( reversed_sorted,    heapsort,   5, 10000, 5000);
@@ -111,4 +117,6 @@ int main(int argc, char *argv[]){
   while(true){
     the_menu();
   }*/
+
+  return 0;
 }
